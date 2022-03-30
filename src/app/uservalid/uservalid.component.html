@@ -1,0 +1,10 @@
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4"></div>
+    <h3>User Validate</h3>
+    <input #email (keyup)="fncUserValid($event)" class="form-control" placeholder="User E-mail">
+    <div *ngIf="emailError != '' " class="alert alert-danger" role="alert">
+        {{ emailError }}
+      </div>
+    <div class="col-sm-4"></div>
+</div>

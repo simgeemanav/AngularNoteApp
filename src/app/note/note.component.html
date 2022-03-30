@@ -1,0 +1,43 @@
+<div class="col-sm-4">
+    <h3>Note Add</h3>
+    <div class="mb-4">
+        <input [(ngModel)]="noteTitle" class="form-control" placeholder="Note Title">
+    </div>
+
+    <div class="mb-4">
+        <input [(ngModel)]="noteDetail" class="form-control" placeholder="Note Detail">
+    </div>
+
+    <button *ngIf="index == -1" (click)="fncInsert()" class=" btn btn-secondary"> Insert </button>
+    <button *ngIf="index != -1" (click)="fncUpdate()" class=" btn btn-secondary"> Update </button>
+
+</div>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Note Number</th>
+        <th scope="col">Note Title</th>
+        <th scope="col">Note Detail</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Update</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of notes ; let i = index;">
+        <th scope="row">{{i+1}}</th>
+        <td>{{ item['noteTitle']}}</td>
+        <td>{{ item['noteDetail']}}</td>
+        <td>
+            <button (click)="fncDataRemove(i)" class="btn btn-danger btn-sm ">Delete</button>
+        </td>
+
+        <td>
+          <button (click)="fncDataUpdate(i)" class="btn btn-warning btn-sm ">Update</button>
+      </td>
+
+
+      </tr>
+    </tbody>
+  </table>
